@@ -21,7 +21,7 @@ open class SwipeCollectionViewCell: UICollectionViewCell {
             swipeController.isArabic = isArabic
         }
     }
-    var isArabic:Bool = false
+    public var isArabic:Bool = false
     var state = SwipeState.center
     var actionsView: SwipeActionsView?
     var scrollView: UIScrollView? {
