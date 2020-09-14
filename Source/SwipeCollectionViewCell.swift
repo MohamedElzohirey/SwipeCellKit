@@ -16,8 +16,12 @@ import UIKit
  */
 open class SwipeCollectionViewCell: UICollectionViewCell {
     /// The object that acts as the delegate of the `SwipeCollectionViewCell`.
-    public weak var delegate: SwipeCollectionViewCellDelegate?
-    
+    public weak var delegate: SwipeCollectionViewCellDelegate?{
+        didSet{
+            swipeController.isArabic = isArabic
+        }
+    }
+    var isArabic:Bool = false
     var state = SwipeState.center
     var actionsView: SwipeActionsView?
     var scrollView: UIScrollView? {

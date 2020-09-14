@@ -35,7 +35,7 @@ class SwipeController: NSObject {
     weak var scrollView: UIScrollView?
     
     var animator: SwipeAnimator?
-    
+    var isArabic:Bool = false
     let elasticScrollRatio: CGFloat = 0.4
     
     var originalCenter: CGFloat = 0
@@ -362,6 +362,15 @@ extension SwipeController: UIGestureRecognizerDelegate {
             let view = gestureRecognizer.view,
             let gestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
             let translation = gestureRecognizer.translation(in: view)
+            if isArabic{
+                if translation.x < 0{
+                    return false
+                }
+            }else{
+                if translation.x > 0{
+                    return false
+                }
+            }
             return abs(translation.y) <= abs(translation.x)
         }
         
